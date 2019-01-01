@@ -68,6 +68,7 @@ func (dt *DigestTransport) RoundTrip(req *http.Request) (resp *http.Response, er
 	}
 
 	dr := NewRequest(username, password, method, uri, body)
+	dr.Header = req.Header
 	return dr.Execute()
 }
 
